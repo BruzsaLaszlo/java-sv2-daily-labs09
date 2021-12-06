@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class ConcertTest {
 
     @Test
@@ -27,17 +29,17 @@ class ConcertTest {
 
         Concert concert = new Concert();
 
-        Assertions.assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(IllegalArgumentException.class, () ->
                 concert.addPerson(jancsi, LocalTime.of(14, 59)));
 
         concert.addPerson(jancsi, LocalTime.of(15, 0,1));
-        Assertions.assertEquals(1, concert.getPeople().size());
+        assertEquals(1, concert.getPeople().size());
 
-        Assertions.assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(IllegalArgumentException.class, () ->
                 concert.addPerson(juliska, LocalTime.of(13, 59)));
 
         concert.addPerson(juliska, LocalTime.of(14, 0,1));
-        Assertions.assertEquals(2, concert.getPeople().size());
+        assertEquals(2, concert.getPeople().size());
 
     }
 }
