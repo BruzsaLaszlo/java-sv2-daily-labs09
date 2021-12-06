@@ -18,6 +18,6 @@ public class FrontOfStageTicket extends  Ticket{
 
     @Override
     public LocalTime entryTime() {
-        return getStartTime().minusHours(2).toLocalTime();
+        return super.entryTime().minusHours(1);
     }
 }
